@@ -1,0 +1,8 @@
+//全局样式桥接器
+@import "./variables";
+@import "./common";
+.themes(@rules){
+  :global(.dustred){@import (multiple) "../theme/dustred/variables.less";@rules();}
+  :global(.lime){@import (multiple) "../theme/lime/variables.less";@rules();}
+  :global(.magenta){@import (multiple) "../theme/magenta/variables.less";@rules();}
+}
