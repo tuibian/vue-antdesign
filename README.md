@@ -1,28 +1,28 @@
-# antd-demo
+# 开箱即用
 
-## Project setup
+## 下载项目安装依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 运行服务
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 运行mock本地数据
+```
+npm run mock
+```
+
+### 打包项目
 ```
 npm run build
 ```
 
-### Run your tests
+### 本框架特性
 ```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
+支持mockjs本地数据，支持国际化，支持换肤，支持token会话保持，支持侧边栏菜单后台配置。
 ```
 
 ### Customize configuration
