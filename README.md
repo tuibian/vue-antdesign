@@ -25,5 +25,6 @@ npm run build
 支持mockjs本地数据，支持国际化，支持换肤，支持token会话保持，支持侧边栏菜单后台配置。
 ```
 
+![Image text](https://github.com/tuibian/vue-antdesign/blob/master/src/assets/demoimg/b.gif)
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
