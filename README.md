@@ -26,5 +26,6 @@ npm run build
 ```
 
 ![Image text](https://github.com/tuibian/vue-antdesign/blob/master/src/assets/demoimg/b.gif)
+![Image text](https://github.com/tuibian/vue-antdesign/blob/master/src/assets/demoimg/c.gif)
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
