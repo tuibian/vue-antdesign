@@ -8,65 +8,59 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: () => {
-                if (localStorage.getItem('token')) {
-                    return 'home';
-                }
-                return '/login';
-            }
+            redirect: '/main'
         },
         {
-            path: '/login',
-            component: () => import('../views/public/Login.vue'),
-            meta: {
-                needAuth: false
-            }
+            path: '/main',
+            component: () => import('../views/secure/Main.vue')
         },
         {
-            path: '/',
-            component: () => import('../views/secure/Main.vue'),
+            path: '/grdq',
+            component: () => import('../views/secure/Grdq.vue')
+        },
+        {
+            path: '/print',
+            component: () => import('../views/secure/Print.vue')
+        },
+        {
+            path: '/xykjh',
+            component: {
+                template:"<router-view />"
+            },
             children: [
                 {
-                    path: '/home',
-                    name: 'home',
-                    component: () => import('../views/secure/Home.vue'),
-                    meta: {
-                        needAuth: true
-                    }
+                    path: '',
+                    component: () => import('../views/secure/activation/Form.vue')
                 },
                 {
-                    path: '/ml',
-                    name: 'spicy',
-                    // route level code-splitting
-                    // this generates a separate chunk (about.[hash].js) for this route
-                    // which is lazy-loaded when the route is visited.
-                    component: () => import(/* webpackChunkName: "about" */ '../views/secure/Spicy.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '/sr',
-                    component: () => import('../views/secure/Garlic.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '/ssx',
-                    component: () => import('../views/secure/ThirteenIncense.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '*',
-                    component: () => import('../views/public/Page404.vue'),
-                    meta: {
-                        needAuth: true
-                    }
+                    path: 'result',
+                    name:'xykjh-result',
+                    props: true,
+                    component: () => import('../views/secure/activation/Result.vue')
                 }
             ]
+        },
+        {
+            path: '/zzkh',
+            component: {
+                template:"<router-view />"
+            },
+            children: [
+                {
+                    path: '',
+                    component: () => import('../views/secure/open-account/Form.vue')
+                },
+                {
+                    path: 'result',
+                    name:'zzkh-result',
+                    props: true,
+                    component: () => import('../views/secure/open-account/Result.vue')
+                }
+            ]
+        },
+        {
+            path: '*',
+            component: () => import('../views/public/Page404.vue')
         }
     ]
 });

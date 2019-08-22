@@ -1,4 +1,5 @@
 const path = require("path");
+// const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
     css: {
         loaderOptions: {
@@ -9,13 +10,32 @@ module.exports = {
     },
     devServer: {
         proxy: { // 开发API代理设置，可配置多个
-            '/toms': {
+            '/poc': {
                 target: process.env.VUE_APP_BASE_URL
             }
         }
     },
     assetsDir: 'assets',
     runtimeCompiler: true,
+    configureWebpack: () => {
+        // if (process.env.NODE_ENV === 'production') {
+        //     return {
+        //         plugins: [
+        //             new CompressionPlugin({
+        //                 test: /\.js$|\.html$|.\css/, //匹配文件名
+        //                 threshold: 10240,//对超过10k的数据压缩
+        //                 deleteOriginalAssets: false //不删除源文件
+        //             })
+        //         ]
+        //     }
+        // }
+    },
+    chainWebpack: config => {
+        // 移除 prefetch 插件
+        config.plugins.delete('prefetch');
+        // 移除 preload 插件
+        config.plugins.delete('preload');
+    },
     pluginOptions: {
         'style-resources-loader': {
             preProcessor: 'less',
