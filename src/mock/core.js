@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+let version = '1.0.0';//APP版本号
 module.exports = {
     '/tranfer': function (req) {
         console.log(req);
@@ -54,6 +55,17 @@ module.exports = {
                 amount: res.amount || '--',
                 auth: 'BB授权'
             }
+        }
+    },
+    '/getVersion': function () {
+        return {
+            data: version
+        }
+    },
+    '/setVersion': function (req) {
+        version = req.version;
+        return {
+            data: version
         }
     }
 };

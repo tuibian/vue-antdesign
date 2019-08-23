@@ -27,6 +27,10 @@ export default new Router({
             component: () => import('../views/secure/Push.vue')
         },
         {
+            path: '/publish',
+            component: () => import('../views/secure/Public.vue')
+        },
+        {
             path: '/xykjh',
             component: {
                 template:"<router-view />"

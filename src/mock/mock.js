@@ -30,7 +30,9 @@ for (let key in mocks) {
         } else {
             res.json(response);
         }
-        bills.push(mockValue.bill);
+        if (mockValue.bill) {
+            bills.push(mockValue.bill);
+        }
     });
 }
 app.use('/poc/bills', function (req, res) {

@@ -16,6 +16,9 @@
             <router-link to="/push">
                 <a-button type="primary" :size="'large'">消息推送</a-button>
             </router-link>
+            <router-link to="/publish">
+                <a-button type="primary" :size="'large'">版本发布</a-button>
+            </router-link>
         </div>
     </a-layout>
 </template>
