@@ -111,7 +111,7 @@
                 },
             });
         },
-        destroyed(){
+        destroyed() {
             this.$notification.destroy();
         },
         methods: {
@@ -119,16 +119,25 @@
                 e.preventDefault();
                 this.form.validateFields((err, values) => {
                     if (!err) {
-                        this.isLoading = true;
-                        this.Api.Core.active(values).then(res => {
-                            this.isLoading = false;
-                            console.log('结果：', res);
-                            this.$router.replace({ name: 'xykjh-result', params: { res: res.data } });
+                        this.$confirm({
+                            title: '请求授权',
+                            content: '该业务需要发起授权流程，是否请求授权？',
+                            cancelText: '取消',
+                            okText: '确认',
+                            onOk: () => {
+                                this.takePush('请求授权$0',() => {
+                                    this.Api.Core.active(values).then(res => {
+                                        this.isLoading = false;
+                                        console.log('结果：', res);
+                                        this.$router.replace({ name: 'xykjh-result', params: { res: res.data } });
+                                    });
+                                });
+                            }
                         });
                     }
                 });
             },
-            compareToFirstPassword  (rule, value, callback) {
+            compareToFirstPassword(rule, value, callback) {
                 const form = this.form;
                 if (value && value !== form.getFieldValue('password')) {
                     callback('两次输入的密码不一致！');
@@ -136,14 +145,14 @@
                     callback();
                 }
             },
-            validateToNextPassword  (rule, value, callback) {
+            validateToNextPassword(rule, value, callback) {
                 const form = this.form;
                 if (value && this.confirmDirty) {
                     form.validateFields(['pwd_confirm'], { force: true });
                 }
                 callback();
             },
-            handleConfirmBlur  (e) {
+            handleConfirmBlur(e) {
                 const value = e.target.value;
                 this.confirmDirty = this.confirmDirty || !!value;
             }

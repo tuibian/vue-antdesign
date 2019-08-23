@@ -23,6 +23,10 @@ export default new Router({
             component: () => import('../views/secure/Print.vue')
         },
         {
+            path: '/push',
+            component: () => import('../views/secure/Push.vue')
+        },
+        {
             path: '/xykjh',
             component: {
                 template:"<router-view />"

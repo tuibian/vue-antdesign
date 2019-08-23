@@ -38,9 +38,6 @@
                         <a-button type="primary" html-type="submit">
                             下一步
                         </a-button>
-                        <!--<a-button type="primary" @click="openKeyBoard">-->
-                        <!--输入密码-->
-                        <!--</a-button>-->
                         <a-button style="margin-left: 15px" type="danger" @click="home">
                             取消
                         </a-button>

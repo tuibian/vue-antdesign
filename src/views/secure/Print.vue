@@ -88,6 +88,7 @@
         margin: 50px 0 30px;
         position: relative;
         border: 1px solid #000;
+        padding-bottom: 30px;
         .head {
             display: flex;
             justify-content: space-between;

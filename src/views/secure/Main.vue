@@ -13,6 +13,9 @@
             <router-link to="/print">
                 <a-button type="primary" :size="'large'">打印凭证</a-button>
             </router-link>
+            <router-link to="/push">
+                <a-button type="primary" :size="'large'">消息推送</a-button>
+            </router-link>
         </div>
     </a-layout>
 </template>

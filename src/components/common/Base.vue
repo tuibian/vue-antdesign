@@ -54,6 +54,23 @@
                         }
                     };
                 }
+            },
+            takePush(content, callback) {
+                this.isLoading = true;
+                if (this._isMobile()) {
+                    window.UtilPluginTakePush = (res) => {
+                        console.log('消息推送返回:', res);
+                        if (res === '1') {
+                            callback();
+                        } else {
+                            this.isLoading = false;
+                            this.$message.error('授权失败！');
+                        }
+                    }
+                    window.UtilPlugin.takePush(content);
+                } else {
+                    callback();
+                }
             }
         }
     }
