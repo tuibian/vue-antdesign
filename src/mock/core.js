@@ -9,7 +9,14 @@ module.exports = {
             in_blance: 200
         });
         return {
-            data: res
+            data: res,
+            bill: {
+                transType: '转账',
+                transInfo: '转账信息',
+                currency: '人民币',
+                amount: res.amount || '--',
+                auth: 'XX授权'
+            }
         }
     },
     '/active': function (req) {
@@ -21,7 +28,14 @@ module.exports = {
             cllx: '紧急处理'
         });
         return {
-            data: res
+            data: res,
+            bill: {
+                transType: '激活',
+                transInfo: '激活信息',
+                currency: '人民币',
+                amount: res.amount || '--',
+                auth: 'AA授权'
+            }
         }
     },
     '/openAccount': function (req) {
@@ -32,7 +46,14 @@ module.exports = {
             dqzhll: '4.3%'
         });
         return {
-            data: res
+            data: res,
+            bill: {
+                transType: '开户',
+                transInfo: '开户信息',
+                currency: '人民币',
+                amount: res.amount || '--',
+                auth: 'BB授权'
+            }
         }
     }
 };

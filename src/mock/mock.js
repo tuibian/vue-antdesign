@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 const mocks = { ...core };
+const bills = []; // 交易回单数据
 //使用mockjs模拟数据
 for (let key in mocks) {
     app.use('/poc' + key, function (req, res) {
@@ -21,15 +22,20 @@ for (let key in mocks) {
             mockValue = mockValue(req.body);
         }
         const { delay } = mockValue;
+        const response = Mock.mock(mockValue.data);
         if (delay) {
             setTimeout(() => {
-                res.json(Mock.mock(mockValue.data));
+                res.json(response);
             }, delay);
         } else {
-            res.json(Mock.mock(mockValue.data));
+            res.json(response);
         }
+        bills.push(mockValue.bill);
     });
 }
+app.use('/poc/bills', function (req, res) {
+    res.json(bills);
+});
 app.listen('8090', () => {
     console.log('监听端口 8090');
 });

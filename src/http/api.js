@@ -44,7 +44,8 @@ const Api = {
     Core: {
         tranfer: (req) => Vue.axios.post('/tranfer', req),
         active: (req) => Vue.axios.post('/active', req),
-        openAccount: (req) => Vue.axios.post('/openAccount', req)
+        openAccount: (req) => Vue.axios.post('/openAccount', req),
+        bills: () => Vue.axios.post('/bills')
     }
 };
 export { Api };
