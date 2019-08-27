@@ -46,7 +46,8 @@ const Api = {
         active: (req) => Vue.axios.post('/active', req),
         openAccount: (req) => Vue.axios.post('/openAccount', req),
         bills: () => Vue.axios.post('/bills'),
-        publicVersion: (req) => Vue.axios.post('/setVersion', req)
+        publicVersion: (req) => Vue.axios.post('/setVersion', req),
+        setDelay: (req) => Vue.axios.post('/setDelay', req)
     }
 };
 export { Api };

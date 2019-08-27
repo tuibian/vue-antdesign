@@ -7,8 +7,9 @@ var bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-const mocks = { ...core };
+const mocks = core;
 const bills = []; // 交易回单数据
+let g_delay = 0; // 全局交易延迟
 //使用mockjs模拟数据
 for (let key in mocks) {
     app.use('/poc' + key, function (req, res) {
@@ -23,10 +24,10 @@ for (let key in mocks) {
         }
         const { delay } = mockValue;
         const response = Mock.mock(mockValue.data);
-        if (delay) {
+        if (delay || g_delay) {
             setTimeout(() => {
                 res.json(response);
-            }, delay);
+            }, delay || g_delay);
         } else {
             res.json(response);
         }
@@ -37,6 +38,12 @@ for (let key in mocks) {
 }
 app.use('/poc/bills', function (req, res) {
     res.json(bills);
+});
+app.use('/poc/setDelay', function (req, res) {
+    if (req.body.delay) {
+        g_delay = req.body.delay;
+    }
+    res.json(Mock.mock({ g_delay }));
 });
 app.listen('8090', () => {
     console.log('监听端口 8090');
