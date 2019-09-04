@@ -1,5 +1,9 @@
 /* eslint-disable no-console */
 //引入mockjs
+const path = require('path'), mode = process.env.NODE_ENV;
+require('dotenv').config({
+    path: path.resolve(process.cwd(), mode ? '.env.' + mode : '.env')
+});
 const express = require('express');   //引入express
 const Mock = require('mockjs');       //引入mock
 const menu = require('./menu');
@@ -12,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 const mocks = { ...menu, ...other, ...user };
 //使用mockjs模拟数据
 for (let key in mocks) {
-    app.use('/toms' + key, function (req, res) {
+    app.use(process.env.VUE_APP_BASE_API + key, function (req, res) {
         console.log('请求头：', req.headers);
         console.log('请求体：', req.body);
         if (new Date().getTime() - req.headers.token > 300000) {

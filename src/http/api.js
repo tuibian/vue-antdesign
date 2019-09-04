@@ -21,7 +21,7 @@ Vue.axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 Vue.axios.interceptors.response.use(function (response) {
     //返回成功数据
-    return response;
+    return response.data;
 }, function (error) { //http请求报错
     if (error.message.isCanceled) return Promise.reject(error);//请求被取消
     const status = error.response.status;
@@ -45,7 +45,7 @@ const Api = {
         getMenu: () => Vue.axios.get('/menu')
     },
     User: {
-        login: (paylad) => Vue.axios.post('/login', paylad),
+        login: (paylad) => Vue.axios.post('/user/login', paylad),
         getInfo: () => Vue.axios.get('/getUserInfo')
     }
 };

@@ -1,46 +1,48 @@
 <template>
     <div class="bg">
-        <a-form
-                :form="form"
-                class="login-form"
-                @submit="handleSubmit"
-        >
-            <a-form-item>
-                <a-input v-decorator="['username',{ rules: [{ required: true, message: $t('enterusername') }] }]" :placeholder="$t('username')">
-                    <a-icon
-                            slot="prefix"
-                            type="user"
-                            style="color: rgba(0,0,0,.25)"
-                    />
-                </a-input>
-            </a-form-item>
-            <a-form-item>
-                <a-input v-decorator="['password',{ rules: [{ required: true, message: $t('enterpassword') }] }]" type="password" :placeholder="$t('password')">
-                    <a-icon
-                            slot="prefix"
-                            type="lock"
-                            style="color: rgba(0,0,0,.25)"
-                    />
-                </a-input>
-            </a-form-item>
-            <a-form-item style="margin-bottom: 0;">
-                <a-checkbox v-decorator="['remember',{valuePropName: 'checked',initialValue: true,}]">
-                    {{$t('rememberme')}}
-                </a-checkbox>
-                <a class="login-form-forgot" href="javascript:;">
-                    {{$t('forgotpassword')}}
-                </a>
-                <a-button
-                        type="primary"
-                        html-type="submit"
-                        class="login-form-button"
-                >
-                    {{$t('login')}}
-                </a-button>
-                <a href="javascript:;">{{$t('registernow')}}>></a>
-                <Local class="right"></Local>
-            </a-form-item>
-        </a-form>
+        <a-spin :spinning="isLoading">
+            <a-form
+                    :form="form"
+                    class="login-form"
+                    @submit="handleSubmit"
+            >
+                <a-form-item>
+                    <a-input v-decorator="['username',{ rules: [{ required: true, message: $t('enterusername') }] }]" :placeholder="$t('username')">
+                        <a-icon
+                                slot="prefix"
+                                type="user"
+                                style="color: rgba(0,0,0,.25)"
+                        />
+                    </a-input>
+                </a-form-item>
+                <a-form-item>
+                    <a-input v-decorator="['password',{ rules: [{ required: true, message: $t('enterpassword') }] }]" type="password" :placeholder="$t('password')">
+                        <a-icon
+                                slot="prefix"
+                                type="lock"
+                                style="color: rgba(0,0,0,.25)"
+                        />
+                    </a-input>
+                </a-form-item>
+                <a-form-item style="margin-bottom: 0;">
+                    <a-checkbox v-decorator="['remember',{valuePropName: 'checked',initialValue: true,}]">
+                        {{$t('rememberme')}}
+                    </a-checkbox>
+                    <a class="login-form-forgot" href="javascript:;">
+                        {{$t('forgotpassword')}}
+                    </a>
+                    <a-button
+                            type="primary"
+                            html-type="submit"
+                            class="login-form-button"
+                    >
+                        {{$t('login')}}
+                    </a-button>
+                    <a href="javascript:;">{{$t('registernow')}}>></a>
+                    <Local class="right"></Local>
+                </a-form-item>
+            </a-form>
+        </a-spin>
     </div>
 </template>
 
@@ -63,9 +65,15 @@
                 e.preventDefault();
                 this.form.validateFields((err, value) => {
                     if (!err) {
+                        this.isLoading = true;
                         this.Api.User.login(value).then((res) => {
-                            localStorage.setItem('token', res.data.token);
-                            this.$router.replace('/home');
+                            this.isLoading = false;
+                            if (res.status === 200) {
+                                localStorage.setItem('token', res.data.token);
+                                this.$router.replace('/home');
+                            } else {
+                                this.$message.error(res.data);
+                            }
                         });
                     }
                 });
