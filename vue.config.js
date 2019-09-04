@@ -9,7 +9,7 @@ module.exports = {
     },
     devServer: {
         proxy: { // 开发API代理设置，可配置多个
-            '/toms': {
+            [process.env.VUE_APP_BASE_API]: {
                 target: process.env.VUE_APP_BASE_URL
             }
         }
