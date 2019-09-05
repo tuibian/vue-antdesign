@@ -25,12 +25,6 @@
                     </a-input>
                 </a-form-item>
                 <a-form-item style="margin-bottom: 0;">
-                    <a-checkbox v-decorator="['remember',{valuePropName: 'checked',initialValue: true,}]">
-                        {{$t('rememberme')}}
-                    </a-checkbox>
-                    <a class="login-form-forgot" href="javascript:;">
-                        {{$t('forgotpassword')}}
-                    </a>
                     <a-button
                             type="primary"
                             html-type="submit"
@@ -38,8 +32,6 @@
                     >
                         {{$t('login')}}
                     </a-button>
-                    <a href="javascript:;">{{$t('registernow')}}>></a>
-                    <Local class="right"></Local>
                 </a-form-item>
             </a-form>
         </a-spin>
@@ -50,6 +42,8 @@
     /* eslint-disable no-console */
     import Base from '@/components/common/Base';
     import Local from '@/components/locales/Local';
+    import { mapMutations } from 'vuex';
+    import { SET_CURRENT_USER } from '@/store/mutation-types';
 
     export default {
         name: "Login",
@@ -68,7 +62,8 @@
                         this.isLoading = true;
                         this.Api.User.login(value).then((res) => {
                             if (res.status === 200) {
-                                localStorage.setItem('token', res.data.token);
+                                localStorage.setItem('token', res.token);
+                                localStorage.setItem('user', JSON.stringify(res.user));
                                 this.$router.replace('/home');
                             } else {
                                 this.$message.error(res.data);
@@ -78,7 +73,10 @@
                         });
                     }
                 });
-            }
+            },
+            ...mapMutations([
+                SET_CURRENT_USER
+            ]),
         }
     }
 </script>

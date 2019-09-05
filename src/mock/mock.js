@@ -26,6 +26,7 @@ for (let key in mocks) {
         if (typeof mockValue === 'function') {
             mockValue = mockValue(req.body);
         }
+        mockValue.data.token = new Date().getTime();
         const { delay } = mockValue;
         if (delay) {
             setTimeout(() => {

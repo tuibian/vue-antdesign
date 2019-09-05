@@ -22,6 +22,7 @@ Vue.axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 Vue.axios.interceptors.response.use(function (response) {
     //返回成功数据
+    localStorage.setItem('token', response.data.token);
     return response.data;
 }, function (error) { //http请求报错
     if (error.message.isCanceled) return Promise.reject(error);//请求被取消
@@ -50,7 +51,9 @@ const Api = {
     },
     User: {
         login: (paylad) => Vue.axios.post('/user/login', paylad),
-        getInfo: () => Vue.axios.get('/getUserInfo')
+        getInfo: () => Vue.axios.get('/getUserInfo'),
+        rank: (paylad) => Vue.axios.post('/user/rank', paylad),
+        add: (paylad) => Vue.axios.post('/user/add', paylad)
     }
 };
 export { Api };

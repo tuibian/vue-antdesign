@@ -9,7 +9,8 @@ export default new Vuex.Store({
         panes: [
             { title: 'homePage', to: '/home', key: 'home', closable: false, componentName: 'Home' }
         ],
-        activeKey: 'home'
+        activeKey: 'home',
+        currentUser: {}
     },
     mutations: {
         [TYPE.ADD_OR_CHANGE_TAB](state, payload) {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
         },
         [TYPE.CHANGE_TAB](state, key) {
             state.activeKey = key;
+        },
+        [TYPE.SET_CURRENT_USER](state, user) {
+            state.currentUser = user;
         },
         [TYPE.REMOVE_TAB](state, key) {
             const index = state.panes.findIndex(item => item.key === key);
