@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 import Vue from 'vue';
-import { Modal } from 'ant-design-vue';
+import { Modal, message } from 'ant-design-vue';
 import router from '../router/router';
 
 //设置http请求的根路径，例如:/toms
 const API_CONTEXT = process.env.VUE_APP_BASE_API;//从模式配置文件读取根路径常量
 Vue.axios.defaults.baseURL = API_CONTEXT;//设置全局请求根路径
+Vue.axios.defaults.timeout = 60000;//设置全局请求超时时间
 //创建请求的CancelToken用于取消请求
 const CancelToken = Vue.axios.CancelToken;
 let source = CancelToken.source();
@@ -24,7 +25,7 @@ Vue.axios.interceptors.response.use(function (response) {
     return response.data;
 }, function (error) { //http请求报错
     if (error.message.isCanceled) return Promise.reject(error);//请求被取消
-    const status = error.response.status;
+    const { status, data } = error.response;
     switch (status) {
         case 401://（未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。
             source.cancel({ isCanceled: true });//请求返回拦截到无效token，取消其他所有并发请求
@@ -37,8 +38,11 @@ Vue.axios.interceptors.response.use(function (response) {
                 }
             });
             break;
+        default:
+            message.error(data);
+            break;
     }
-    return Promise.reject(error);
+    return Promise.reject(error.response);
 });
 const Api = {
     Menu: {

@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 module.exports = {
-    '/login': function (req) {
+    '/user/login': function (req) {
         console.log(req);
         return {
+            delay: 10000,
             data: {
                 token: new Date().getTime()
             }
