@@ -67,13 +67,14 @@
                     if (!err) {
                         this.isLoading = true;
                         this.Api.User.login(value).then((res) => {
-                            this.isLoading = false;
                             if (res.status === 200) {
                                 localStorage.setItem('token', res.data.token);
                                 this.$router.replace('/home');
                             } else {
                                 this.$message.error(res.data);
                             }
+                        }).finally(() => {
+                            this.isLoading = false;
                         });
                     }
                 });
