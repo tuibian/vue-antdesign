@@ -1,16 +1,1 @@
-{
-  "list": [
-    {
-      "loginName": "chirh",
-      "userName": "池如海",
-      "isLeader": true,
-      "count": 40
-    },
-    {
-      "loginName": "maxs",
-      "userName": "马鑫山",
-      "isLeader": false,
-      "count": 0
-    }
-  ]
-}
+{"list":[{"loginName":"chirh","userName":"池如海","isLeader":true,"count":0},{"loginName":"lixy","userName":"李晓颖","isLeader":false,"count":10},{"loginName":"chenxr","userName":"陈雪如","isLeader":false,"count":0}]}

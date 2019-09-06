@@ -16,6 +16,12 @@ module.exports = {
     },
     assetsDir: 'assets',
     runtimeCompiler: true,
+    chainWebpack: config => {
+        // 移除 prefetch 插件
+        config.plugins.delete('prefetch');
+        // 移除 preload 插件
+        config.plugins.delete('preload');
+    },
     pluginOptions: {
         'style-resources-loader': {
             preProcessor: 'less',

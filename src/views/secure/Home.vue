@@ -4,7 +4,13 @@
             <a-tab-pane tab="排行" key="1">
                 <ul class="rank">
                     <li v-for="(item, index) in rankList">
-                        <label>{{index+1}}.{{item.userName}}</label>
+                        <label>
+                            <span v-if="index>2">{{index+1}}.</span>
+                            <img v-if="index===0" width="25" height="25" src="~@/assets/images/top1.png"/>
+                            <img v-if="index===1" width="25" height="25" src="~@/assets/images/top2.png"/>
+                            <img v-if="index===2" width="25" height="25" src="~@/assets/images/top3.png"/>
+                            {{item.userName}}
+                        </label>
                         <span>{{item.count}}</span>
                     </li>
                 </ul>
@@ -16,7 +22,13 @@
             <a-tab-pane v-if="currentUser.isLeader" tab="我组" key="2">
                 <ul class="rank">
                     <li v-for="(item, index) in groupRank">
-                        <label>{{index+1}}.{{item.userName}}</label>
+                        <label>
+                            <span v-if="index>2">{{index+1}}.</span>
+                            <img v-if="index===0" width="25" height="25" src="~@/assets/images/top1.png"/>
+                            <img v-if="index===1" width="25" height="25" src="~@/assets/images/top2.png"/>
+                            <img v-if="index===2" width="25" height="25" src="~@/assets/images/top3.png"/>
+                            {{item.userName}}
+                        </label>
                         <span>{{item.count}}</span>
                     </li>
                 </ul>
@@ -41,8 +53,8 @@
                                 <a-select-option value="2">2</a-select-option>
                                 <a-select-option value="3">3</a-select-option>
                                 <a-select-option value="4">4</a-select-option>
-                                <a-select-option value="5">5</a-select-option>
-                                <a-select-option value="6">6</a-select-option>
+                                <a-select-option value="10">10</a-select-option>
+                                <a-select-option value="20">20</a-select-option>
                             </a-select>
                         </a-form-item>
                         <a-button type="primary" html-type="submit">提交</a-button>
@@ -205,6 +217,7 @@
         justify-content: center;
         .ant-btn-default {
             margin-top: 15px;
+            margin-bottom: 15px;
         }
     }
 </style>

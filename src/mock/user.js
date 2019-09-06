@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
 var fs = require('fs');
-let groupA, groupB, allUser;
+let groupA, groupB, groupC, groupD, groupE, allUser;
 
 function refresh() {
     groupA = JSON.parse(fs.readFileSync(__dirname + '/chirh.json', 'utf8')).list;
     groupB = JSON.parse(fs.readFileSync(__dirname + '/jiangwz.json', 'utf8')).list;
-    allUser = [...groupA, ...groupB].sort((a, b) => b.count - a.count);
+    groupC = JSON.parse(fs.readFileSync(__dirname + '/zengtb.json', 'utf8')).list;
+    groupD = JSON.parse(fs.readFileSync(__dirname + '/yangh.json', 'utf8')).list;
+    groupE = JSON.parse(fs.readFileSync(__dirname + '/lizy.json', 'utf8')).list;
+    allUser = [...groupA, ...groupB, ...groupC, ...groupD, ...groupE].sort((a, b) => b.count - a.count);
 }
 
 refresh();
@@ -29,7 +32,7 @@ module.exports = {
         }
         const user = allUser.find(user => user.loginName === username);
         if (user) {
-            if (user.isLeader && password === username) {
+            if (user.isLeader && password === username.split('').reverse().join('')) {
                 res.data.status = 200;
             } else if (!user.isLeader && password === '111111') {
                 res.data.status = 200;
@@ -105,11 +108,29 @@ module.exports = {
         groupB.forEach((item) => {
             item.count = 0;
         });
+        groupC.forEach((item) => {
+            item.count = 0;
+        });
+        groupD.forEach((item) => {
+            item.count = 0;
+        });
+        groupE.forEach((item) => {
+            item.count = 0;
+        });
         fs.writeFileSync(__dirname + `/chirh.json`, JSON.stringify({
             list: groupA
         }));
         fs.writeFileSync(__dirname + `/jiangwz.json`, JSON.stringify({
             list: groupB
+        }));
+        fs.writeFileSync(__dirname + `/zengtb.json`, JSON.stringify({
+            list: groupC
+        }));
+        fs.writeFileSync(__dirname + `/yangh.json`, JSON.stringify({
+            list: groupD
+        }));
+        fs.writeFileSync(__dirname + `/lizy.json`, JSON.stringify({
+            list: groupE
         }));
         refresh();
         return {
