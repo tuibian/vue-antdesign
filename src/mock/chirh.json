@@ -1,1 +1,16 @@
-{"list":[{"loginName":"chirh","userName":"池如海","isLeader":true,"count":29},{"loginName":"maxs","userName":"马鑫山","isLeader":false,"count":36}]}
+{
+  "list": [
+    {
+      "loginName": "chirh",
+      "userName": "池如海",
+      "isLeader": true,
+      "count": 40
+    },
+    {
+      "loginName": "maxs",
+      "userName": "马鑫山",
+      "isLeader": false,
+      "count": 0
+    }
+  ]
+}

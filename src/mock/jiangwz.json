@@ -1,1 +1,16 @@
-{"list":[{"loginName":"jiangwz","userName":"江伟喆","isLeader":true,"count":19},{"loginName":"xudf","userName":"许东福","isLeader":false,"count":13}]}
+{
+  "list": [
+    {
+      "loginName": "jiangwz",
+      "userName": "江伟喆",
+      "isLeader": true,
+      "count": 19
+    },
+    {
+      "loginName": "xudf",
+      "userName": "许东福",
+      "isLeader": false,
+      "count": 13
+    }
+  ]
+}

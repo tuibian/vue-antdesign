@@ -53,7 +53,8 @@ const Api = {
         login: (paylad) => Vue.axios.post('/user/login', paylad),
         getInfo: () => Vue.axios.get('/getUserInfo'),
         rank: (paylad) => Vue.axios.post('/user/rank', paylad),
-        add: (paylad) => Vue.axios.post('/user/add', paylad)
+        add: (paylad) => Vue.axios.post('/user/add', paylad),
+        clearData: () => Vue.axios.post('/user/clear')
     }
 };
 export { Api };
