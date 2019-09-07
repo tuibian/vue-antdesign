@@ -8,65 +8,18 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: () => {
-                if (localStorage.getItem('token')) {
-                    return 'home';
-                }
-                return '/login';
-            }
+            redirect: '/index'
         },
         {
-            path: '/login',
-            component: () => import('../views/public/Login.vue'),
+            path: '/index',
+            component: () => import('../views/public/Index.vue')
+        },
+        {
+            path: '*',
+            component: () => import('../views/public/Page404.vue'),
             meta: {
-                needAuth: false
+                needAuth: true
             }
-        },
-        {
-            path: '/',
-            component: () => import('../views/secure/Main.vue'),
-            children: [
-                {
-                    path: '/home',
-                    name: 'home',
-                    component: () => import('../views/secure/Home.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '/ml',
-                    name: 'spicy',
-                    // route level code-splitting
-                    // this generates a separate chunk (about.[hash].js) for this route
-                    // which is lazy-loaded when the route is visited.
-                    component: () => import(/* webpackChunkName: "about" */ '../views/secure/Spicy.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '/sr',
-                    component: () => import('../views/secure/Garlic.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '/ssx',
-                    component: () => import('../views/secure/ThirteenIncense.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                },
-                {
-                    path: '*',
-                    component: () => import('../views/public/Page404.vue'),
-                    meta: {
-                        needAuth: true
-                    }
-                }
-            ]
         }
     ]
 });

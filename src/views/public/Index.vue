@@ -1,10 +1,10 @@
 <template>
-    <p>{{$t('ssxc')}}</p>
+    
 </template>
 
 <script>
     export default {
-        name: "ThirteenIncense"
+        name: "Index"
     }
 </script>
 
