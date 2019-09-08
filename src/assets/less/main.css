@@ -1,4 +1,159 @@
-.right {
-  float: right;
+body {
+  line-height: 1;
+  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "MicrosoftYaHei", "PingFang SC", "WenQuanYi Micro Hei", sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+.center-box {
+  width: 62.5%;
+  min-width: 62.5rem;
+  margin: 0 auto;
+}
+section {
+  min-width: 62.5rem;
+}
+section .banner {
+  position: relative;
+  display: flex;
+  padding-top: 33.33%;
+  width: 100%;
+  height: 100%;
+  background: url("../images/banner-pcrs.png") no-repeat;
+  background-size: cover;
+}
+section .banner.jjfa {
+  padding-top: 33.33%;
+  background: url("../images/banner-jjfa.png") no-repeat;
+  background-size: cover;
+}
+section .banner.fwszx {
+  background: url("../images/fwszx.png") no-repeat;
+  background-size: cover;
+}
+section .banner.shzx {
+  background: url("../images/banner-shzx.png") no-repeat;
+  background-size: cover;
+}
+section .banner > .content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+section .banner > .content h1 {
+  font-size: 38px;
+  margin-bottom: 40px;
+}
+section .banner > .content p {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+section .common-box {
+  width: 100%;
+  padding: 90px 0;
+  background: #fff;
+}
+section .common-box.gray {
+  background: #f6f6f6;
+}
+section .common-box .center-box {
+  display: flex;
+  justify-content: space-between;
+}
+section .common-box.left .center-box .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section .common-box.left .center-box .left h1 {
+  margin-bottom: 25px;
+}
+section .common-box.left .center-box .left p {
+  line-height: 1.5;
+}
+section .common-box.left .center-box .left hr {
+  width: 80%;
+  height: 1px;
+  border: none;
+  margin: 20px 0;
+  border-top: 1px solid #d9d9d9;
+}
+section .common-box.left .center-box .left .img-box {
+  margin-top: 30px;
+  display: flex;
+}
+section .common-box.left .center-box .left .img-box img {
+  margin-right: 35px;
+}
+section .common-box.left .center-box .right.shoukuanma {
+  width: 647px;
+  height: 410px;
+  background: url("../images/shoukuanma.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.left .center-box .right.sxjj {
+  width: 675px;
+  height: 586px;
+  background: url("../images/sxjj.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.left .center-box .right.dzqx {
+  width: 737px;
+  height: 519px;
+  background: url("../images/dzqx.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.left .center-box .right.kdwl {
+  width: 623px;
+  height: 517px;
+  background: url("../images/kdwl.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.right .center-box .left.saomatai {
+  width: 552px;
+  height: 594px;
+  background: url("../images/saomatai.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.right .center-box .left.syck {
+  width: 696px;
+  height: 512px;
+  background: url("../images/syck.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.right .center-box .left.qsg {
+  width: 760px;
+  height: 437px;
+  background: url("../images/qsg.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.right .center-box .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section .common-box.right .center-box .right h1 {
+  margin-bottom: 25px;
+}
+section .common-box.right .center-box .right p {
+  line-height: 1.5;
+}
+.a-center {
+  text-align: center;
+}
+.a-right {
+  text-align: right;
+}
+h1.title {
+  color: #223c4e;
+  font-size: 30px;
+}
+h2.title {
+  color: #333333;
+  font-size: 18px;
 }
 /*# sourceMappingURL=main.css.map */
