@@ -2,15 +2,16 @@
     <section>
         <div class="banner shzx">
             <div class="content">
-                <h1 style="color: #fff">商户后台 + 慧徕店APP</h1>
-                <p>简单易用的开店助手</p>
+                <h1 style="color: #fff;margin-bottom: 33px">商户后台 + 慧徕店APP</h1>
+                <p style="margin-bottom: 46px;">简单易用的开店助手</p>
+                <a href="http://merchant.huilaidian.com.cn/merchant/" class="btn">商户后台</a>
             </div>
         </div>
         <div class="common-box left">
             <div class="center-box">
                 <div class="left">
                     <h1 class="title">对账清晰</h1>
-                    <p>日账单+月账单，清晰记录每一笔收款记录，<br>支持APP远程查看</p>
+                    <p>日账单 + 月账单，清晰记录每一笔收款记录，<br>支持APP远程查看</p>
                 </div>
                 <div class="right dzqx"></div>
             </div>
@@ -45,5 +46,17 @@
 <style scoped lang="less">
     .content {
 
+    }
+    .btn{
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        width:164px;
+        height:50px;
+        color: #fff;
+        border:1px solid rgba(255,255,255,1);
+        border-radius:4px;
     }
 </style>

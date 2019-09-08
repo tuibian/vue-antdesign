@@ -14,11 +14,15 @@ ol, ul {
 
 .center-box {
   width: 62.5%;
-  min-width: 62.5rem;
+  min-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 section {
+  p{
+    font-size: 16px;
+  }
   .banner {
     position: relative;
     display: flex;
@@ -40,6 +44,14 @@ section {
       background: url("../images/banner-shzx.png") no-repeat;
       background-size: cover;
     }
+    &.hzal {
+      background: url("../images/banner-hzal.png") no-repeat;
+      background-size: cover;
+    }
+    &.gywm {
+      background: url("../images/banner-gsjj.png") no-repeat;
+      background-size: cover;
+    }
     & > .content {
       position: absolute;
       left: 50%;
@@ -57,7 +69,7 @@ section {
       }
     }
   }
-  min-width: 62.5rem;
+  min-width: 1200px;
   .common-box {
     width: 100%;
     padding: 90px 0;
@@ -121,6 +133,12 @@ section {
             background: url("../images/kdwl.png") no-repeat;
             background-size: contain;
           }
+          &.zffa-syj {
+            width: 556px;
+            height: 580px;
+            background: url("../images/zffa-syj.png") no-repeat;
+            background-size: contain;
+          }
         }
       }
     }
@@ -143,6 +161,12 @@ section {
             width: 760px;
             height: 437px;
             background: url("../images/qsg.png") no-repeat;
+            background-size: contain;
+          }
+          &.rlsb {
+            width: 538px;
+            height: 640px;
+            background: url("../images/rlsb.png") no-repeat;
             background-size: contain;
           }
         }
@@ -171,13 +195,11 @@ section {
 }
 
 h1.title {
-  //font-weight: bold;
   color: #223c4e;
-  font-size: 30px;
+  font-size: 36px;
 }
 
 h2.title {
-  //font-weight: bold;
   color: #333333;
   font-size: 18px;
 }

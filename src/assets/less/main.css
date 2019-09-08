@@ -8,11 +8,15 @@ ul {
 }
 .center-box {
   width: 62.5%;
-  min-width: 62.5rem;
+  min-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 section {
-  min-width: 62.5rem;
+  min-width: 1200px;
+}
+section p {
+  font-size: 16px;
 }
 section .banner {
   position: relative;
@@ -34,6 +38,14 @@ section .banner.fwszx {
 }
 section .banner.shzx {
   background: url("../images/banner-shzx.png") no-repeat;
+  background-size: cover;
+}
+section .banner.hzal {
+  background: url("../images/banner-hzal.png") no-repeat;
+  background-size: cover;
+}
+section .banner.gywm {
+  background: url("../images/banner-gsjj.png") no-repeat;
   background-size: cover;
 }
 section .banner > .content {
@@ -113,6 +125,12 @@ section .common-box.left .center-box .right.kdwl {
   background: url("../images/kdwl.png") no-repeat;
   background-size: contain;
 }
+section .common-box.left .center-box .right.zffa-syj {
+  width: 556px;
+  height: 580px;
+  background: url("../images/zffa-syj.png") no-repeat;
+  background-size: contain;
+}
 section .common-box.right .center-box .left.saomatai {
   width: 552px;
   height: 594px;
@@ -129,6 +147,12 @@ section .common-box.right .center-box .left.qsg {
   width: 760px;
   height: 437px;
   background: url("../images/qsg.png") no-repeat;
+  background-size: contain;
+}
+section .common-box.right .center-box .left.rlsb {
+  width: 538px;
+  height: 640px;
+  background: url("../images/rlsb.png") no-repeat;
   background-size: contain;
 }
 section .common-box.right .center-box .right {
@@ -150,7 +174,7 @@ section .common-box.right .center-box .right p {
 }
 h1.title {
   color: #223c4e;
-  font-size: 30px;
+  font-size: 36px;
 }
 h2.title {
   color: #333333;

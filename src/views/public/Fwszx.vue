@@ -3,6 +3,7 @@
         <div class="banner fwszx">
             <div class="content">
                 <h1 style="color: #fff">服务商后台 + 慧徕店展业助手APP</h1>
+                <a href="http://merchant.huilaidian.com.cn/merchant/" class="btn">服务商后台</a>
             </div>
         </div>
         <div class="common-box gray left">
@@ -75,5 +76,17 @@
                 background-size: contain;
             }
         }
+    }
+    .btn{
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        width:164px;
+        height:50px;
+        color: #fff;
+        border:1px solid rgba(255,255,255,1);
+        border-radius:4px;
     }
 </style>

@@ -35,6 +35,14 @@ export default new Router({
                     component: () => import('../views/public/Zfjjfa.vue')
                 },
                 {
+                    path: '/cooperation',
+                    component: () => import('../views/public/Cooperation.vue')
+                },
+                {
+                    path: '/company',
+                    component: () => import('../views/public/Company.vue')
+                },
+                {
                     path: '*',
                     component: () => import('../views/public/Page404.vue'),
                     meta: {

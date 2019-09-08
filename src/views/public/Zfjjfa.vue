@@ -31,6 +31,24 @@
                 </div>
             </div>
         </div>
+        <div class="common-box left" style="padding: 70px 0">
+            <div class="center-box">
+                <div class="left">
+                    <h1 class="title">收银机</h1>
+                    <p>支持外接扫码枪、扫台、钱箱、人脸识别和电子秤等外设，<br>同时支持银行卡插/刷/挥卡交易，扩展丰富更强大！</p>
+                </div>
+                <div class="right zffa-syj"></div>
+            </div>
+        </div>
+        <div class="common-box gray right" style="padding: 36px 0">
+            <div class="center-box">
+                <div class="left rlsb"></div>
+                <div class="right">
+                    <h1 class="title">人脸识别</h1>
+                    <p>刷脸支付时代来临<br>比二维码更方便的支付方式，提升收银效率，升格调拉客的神器！</p>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 

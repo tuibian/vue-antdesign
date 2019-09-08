@@ -3,31 +3,35 @@
         <div class="content">
             <div class="logo"></div>
             <ul class="menu">
-                <li :class="{ selected: current==='index' }" @click="current='index'">
+                <li :class="{ selected: current==='/index' }">
                     <router-link to="/index">首页</router-link>
                 </li>
-                <li :class="{ selected: current==='pcrs' }" @click="current='pcrs'" @mouseenter="showSub" @mouseleave="hideSub">
+                <li :class="{ selected: current==='/pcrs'||current==='/zfjjfa' }" @mouseenter="showSub" @mouseleave="hideSub">
                     <router-link to="/pcrs">产品中心</router-link>
                     <template v-if="showSubMenu">
                         <div class="sub-bg"></div>
                         <ul class="subMenu">
-                            <li><router-link to="/pcrs">新零售解决方案</router-link></li>
-                            <li><router-link to="/zfjjfa">支付解决方案</router-link></li>
+                            <li :class="{ selected: current==='/pcrs' }">
+                                <router-link to="/pcrs">新零售解决方案</router-link>
+                            </li>
+                            <li :class="{ selected: current==='/zfjjfa' }">
+                                <router-link to="/zfjjfa">支付解决方案</router-link>
+                            </li>
                             <li><a>丰富的外设</a></li>
                         </ul>
                     </template>
                 </li>
-                <li :class="{ selected: current==='shzx' }" @click="current='shzx'">
+                <li :class="{ selected: current==='/shzx' }">
                     <router-link to="/shzx">商户中心</router-link>
                 </li>
-                <li :class="{ selected: current==='fwszx' }" @click="current='fwszx'">
+                <li :class="{ selected: current==='/fwszx' }">
                     <router-link to="/fwszx">服务商中心</router-link>
                 </li>
-                <li>
-                    <a>合作案例</a>
+                <li :class="{ selected: current==='/cooperation' }">
+                    <router-link to="/cooperation">合作案例</router-link>
                 </li>
-                <li>
-                    <a>关于我们</a>
+                <li :class="{ selected: current==='/company' }">
+                    <router-link to="/company">关于我们</router-link>
                 </li>
             </ul>
         </div>
@@ -39,9 +43,13 @@
         name: "Header",
         data: function () {
             return {
-                current: 'index',
                 showSubMenu: false,
                 timer: null
+            }
+        },
+        computed: {
+            current: function () {
+                return this.$route.path;
             }
         },
         methods: {
@@ -61,21 +69,23 @@
 <style scoped lang="less">
     header {
         width: 100%;
-        height: 5rem;
+        height: 80px;
         .content {
             margin: 0 auto;
-            width: 1000px;
-            padding-top: 10px;
+            width: 1200px;
+            padding: 10px 0px 0px 20px;
             .logo {
                 float: left;
-                width: 140px;
-                height: 55px;
+                width: 100px;
+                height: 40px;
+                margin-top: 8px;
                 background: url("~@/assets/images/logo.png") no-repeat;
                 background-size: contain;
             }
             ul.menu {
                 float: right;
                 display: flex;
+                font-size: 16px;
                 li {
                     height: 3.125rem;
                     display: flex;
@@ -93,7 +103,6 @@
                     a {
                         text-decoration: none;
                         color: #010101;
-                        font-weight: bold;
                     }
                 }
                 .sub-bg {
@@ -102,6 +111,7 @@
                     left: 0;
                     right: 0;
                     top: 80px;
+                    min-width: 1200px;
                     background: rgba(255, 255, 255, .5);
                 }
                 .subMenu {

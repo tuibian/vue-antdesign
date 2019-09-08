@@ -10,7 +10,7 @@
         <div class="saas">
             <div class="center-box">
                 <div class="left">
-                    <h1 class="title">零售SAAS系统</h1>
+                    <h1 class="title">零售SaaS系统</h1>
                     <p>支持网页登录，包含商品管理、库存管理、</p>
                     <p>会员管理、营销管理、详细的经营分析和微店</p>
                 </div>
@@ -21,7 +21,7 @@
             <div class="content">
                 <p style="display: flex;align-items: center"><img src="~@/assets/images/logos.png"><span style="margin-left: 10px">慧徕店商家助手（公众号）</span></p>
                 <h1 class="title">随时随地管理店铺</h1>
-                <p>作为零售Saas系统的移动端载体，商户可在手机上<br>进行对应操作，使用更便捷！</p>
+                <p>作为零售SaaS系统的移动端载体，商户可在手机上<br>进行对应操作，使用更便捷！</p>
             </div>
         </div>
         <div class="ymq">
@@ -41,8 +41,8 @@
             <div class="center-box">
                 <div class="left"></div>
                 <div class="right">
-                    <h1 class="title">收银机</h1>
-                    <p>扫码、银行卡插/刷/挥，支付类型全支持<br>支持外接扫码枪、扫台、钱箱、人脸识别和电子秤等外设，<br>扩展丰富更强大！</p>
+                    <h1 class="title">收银机（适配零售SaaS系统）</h1>
+                    <p>全面，外设丰富，满足各种业态需求<br>丰富的外设 + 适配零售SaaS系统的收银机 + 全类型支付，<br>满足各种业态需求！ </p>
                 </div>
             </div>
         </div>

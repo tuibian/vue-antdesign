@@ -42,7 +42,7 @@
 <style scoped lang="less">
     footer {
         width: 100%;
-        min-width: 1000px;
+        min-width: 1200px;
         height: 300px;
         font-size: 14px;
         color: #4f505e;
@@ -61,7 +61,7 @@
                     p {
                         margin-bottom: 10px;
                         &.title {
-                            font-size: 18px;
+                            font-size: 20px;
                             color: #d6d6d7;
                             margin-bottom: 25px;
                         }

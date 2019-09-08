@@ -21,6 +21,15 @@ module.exports = {
         config.plugins.delete('prefetch');
         // 移除 preload 插件
         config.plugins.delete('preload');
+        // 图片压缩
+        // const imagesRule = config.module.rule('images');
+        // imagesRule
+        //     .use('image-webpack-loader')
+        //     .loader('image-webpack-loader')
+        //     .options({
+        //         bypassOnDebug: true
+        //     })
+        //     .end()
     },
     pluginOptions: {
         'style-resources-loader': {

@@ -6,7 +6,7 @@
                 <div class="left">
                     <h1 class="title">新零售解决方案</h1>
                     <h2 class="title">轻量级组合</h2>
-                    <p>零售SAAS系统+微信公众号+云码枪=收银机，用极简方式呈现复杂功能</p>
+                    <p>零售SaaS系统 + 微信公众号 + 云码枪 = 收银机，用极简方式呈现复杂功能</p>
                     <h2 class="title">方案包含</h2>
                     <ul class="fa-list">
                         <li><i class="spgl"></i>商品管理</li>
@@ -41,8 +41,8 @@
                 <p class="title">
                     专业的运营和客服团队
                 </p>
-                <p style="margin-top: 18px;margin-bottom: 50px">提供多方位支持和服务，让您使用和售后无忧</p>
-                <p class="title">
+                <p style="margin-top: 16px;margin-bottom: 50px">提供多方位支持和服务，让您使用和售后无忧</p>
+                <p class="title big">
                     24小时在线，4006886501，客服电话任您call！
                 </p>
             </div>
@@ -144,7 +144,7 @@
             align-items: center;
             .left {
                 width: 682px;
-                height: 470px;
+                height: 468px;
                 background: url("~@/assets/images/pc.png") no-repeat;
                 background-size: 100%;
             }
@@ -187,6 +187,11 @@
             color: #ffffff;
             &.title {
                 font-size: 30px;
+                line-height: 30px;
+            }
+            &.big{
+                font-size: 36px;
+                line-height: 36px;
             }
         }
     }
@@ -200,7 +205,7 @@
             display: flex;
             align-items: center;
             margin: 0 auto 110px;
-            border-bottom: 3px solid #205bff;
+            border-bottom: 2px solid #205bff;
         }
         .bg {
             width: 95%;
