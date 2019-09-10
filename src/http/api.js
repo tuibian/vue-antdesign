@@ -46,7 +46,7 @@ Vue.axios.interceptors.response.use(function (response) {
 });
 const Api = {
     Menu: {
-        getMenu: () => Vue.axios.get('/menu')
+        getMenu: () => Vue.axios.get('/menu/all')
     },
     User: {
         login: (paylad) => Vue.axios.post('/user/login', paylad),

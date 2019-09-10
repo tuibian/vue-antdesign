@@ -8,7 +8,7 @@
     </span>
         <template v-for="item in props.menuInfo.children">
             <a-menu-item
-                    v-if="!item.children"
+                    v-if="!item.children||item.children.length===0"
                     :key="item.key"
                     :item="item"
             >

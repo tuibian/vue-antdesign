@@ -67,9 +67,9 @@
             }
         },
         created: function () {
-            this.Api.User.getInfo().then(res => {
-                this.username = res.data.username;
-            });
+            // this.Api.User.getInfo().then(res => {
+            //     this.username = res.data.username;
+            // });
         },
         components: {
             SideBar,

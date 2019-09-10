@@ -2,7 +2,7 @@
     <a-spin :spinning="!menuList.length">
         <a-menu @click="menuClick" :selectedKeys="[activeKey]" mode="inline" :style="{ height: '100%', borderRight: 0 }">
             <template v-for="menu in menuList">
-                <a-menu-item v-if="!menu.children" :key="menu.key" :item="menu">
+                <a-menu-item v-if="!menu.children||menu.children.length===0" :key="menu.key" :item="menu">
                     <a-icon v-if="menu.icon" :type="menu.icon" />
                     <span>{{$t(menu.name)}}</span>
                 </a-menu-item>
@@ -37,9 +37,17 @@
             ])
         },
         created: function () {
+            let tem = {
+                0: { pid: '', children: [] }
+            }, treeObj = {};
             //初始化组件时从后端获取菜单列表
             Api.Menu.getMenu().then(res => {
-                this.menuList = res.data;
+                res.data.forEach(menu => {
+                    menu.children = [];
+                    tem[menu.id] = menu;
+                });
+                treeObj = this.plain2Tree(tem);
+                this.menuList = treeObj.children;
             });
         },
         methods: {
@@ -54,6 +62,18 @@
                         componentName
                     });
                 });
+            },
+            plain2Tree(obj) {
+                var key, res;
+                for (key in obj) {
+                    var parent = obj[key].pid;
+                    if (parent === '') {
+                        res = obj[key];
+                    } else {
+                        obj[parent].children.push(obj[key]);
+                    }
+                }
+                return res;
             },
             ...mapMutations([
                 ADD_OR_CHANGE_TAB
