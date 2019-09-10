@@ -42,6 +42,8 @@ app.use('/poc/bills', function (req, res) {
 app.use('/poc/setDelay', function (req, res) {
     if (req.body.delay) {
         g_delay = req.body.delay;
+    } else {
+        g_delay = 0;
     }
     res.json(Mock.mock({ g_delay }));
 });
