@@ -22,6 +22,9 @@ Vue.axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 Vue.axios.interceptors.response.use(function (response) {
     //返回成功数据
+    if(response.headers){
+        localStorage.setItem('token', response.headers.token);
+    }
     return response.data;
 }, function (error) { //http请求报错
     if (error.message.isCanceled) return Promise.reject(error);//请求被取消
