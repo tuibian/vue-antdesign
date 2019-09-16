@@ -9,6 +9,12 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import i18n from './i18n';
 
+//非生产模式开启调试工具
+if (process.env.NODE_ENV !== 'production') {
+    import("vconsole").then((VConsole) => {
+        const vConsole = new VConsole.default();
+    });
+}
 Vue.config.productionTip = false;
 Vue.use(Antd, {
     size: 'small'

@@ -60,6 +60,13 @@ export default new Router({
                     }
                 },
                 {
+                    path: '/initialize',
+                    component: () => import('../views/secure/Initialize.vue'),
+                    meta: {
+                        needAuth: true
+                    }
+                },
+                {
                     path: '*',
                     component: () => import('../views/public/Page404.vue'),
                     meta: {

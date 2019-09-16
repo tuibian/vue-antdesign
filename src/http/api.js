@@ -22,7 +22,7 @@ Vue.axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 Vue.axios.interceptors.response.use(function (response) {
     //返回成功数据
-    if(response.headers){
+    if (response.headers) {
         localStorage.setItem('token', response.headers.token);
     }
     return response.data;
@@ -54,6 +54,9 @@ const Api = {
     User: {
         login: (paylad) => Vue.axios.post('/user/login', paylad),
         getInfo: () => Vue.axios.get('/getUserInfo')
+    },
+    Core: {
+        run: (paylad) => Vue.axios.post('/core/run', paylad)
     }
 };
 export { Api };
